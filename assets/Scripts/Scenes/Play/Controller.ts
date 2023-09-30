@@ -50,9 +50,10 @@ export class Controller extends Component {
         const listAnswers = this.RandomListAnswer(math.answer)
 
         const intervalId = setInterval(() => {
-            if (this.isClose) { return }
+
             let g = ObjectPool.Instance.getObject(Constants.circle);
             if (g) {
+                if (this.isClose) { return }
                 g.SetPositon(this.RandomPostion());
                 let taget = new Vec3(g.GetPositon().x - this.width - 100, g.GetPositon().y)
                 g.Moving(taget, 15);
